@@ -1,0 +1,63 @@
+ext {
+
+    //编译SDK版本
+    compileSdkVer = 27
+    //构建工具版本
+    buildToolsVer = "26.0.3"
+    //最低兼容版本
+    minSdkVer = 21
+    //测试过的版本
+    targetSdkVer = 27
+    //支持库的版本
+    //JDK版本
+    sourceCompatVer = JavaVersion.VERSION_1_8
+    targetCompatVer = JavaVersion.VERSION_1_8
+
+    shrinkResDebug = false
+    debuggableDebug = true
+    minifyEnabledDebug = false
+    zipAlignEnabledDebug = true
+
+    shrinkResRelease = false
+    debuggableRelease = true
+    minifyEnabledRelease = false
+    zipAlignEnabledRelease = true
+
+    plugin_versions = [
+        buildGradle  : "3.1.1",
+        kotlin       : "1.2.10",
+        bintray      : "1.7.3",
+        android_maven: "1.5",
+    ]
+
+    gradle_plugins = [
+        buildGradle  : "com.android.tools.build:gradle:${plugin_versions.buildGradle}",
+        kotlin       : "org.jetbrains.kotlin:kotlin-gradle-plugin:${plugin_versions.kotlin}",
+        bintray      : "com.jfrog.bintray.gradle:gradle-bintray-plugin:${plugin_versions.bintray}",
+        android_maven: "com.github.dcendents:android-maven-gradle-plugin:${plugin_versions.android_maven}",
+    ]
+
+    versions = [
+        supportVersion  : "27.1.1",
+        supportMultidex : "1.0.3",
+        constraintLayout: "1.1.0",
+        testRunner      : "1.0.1",
+        espressoCore    : "3.0.1",
+        junit           : "4.12",
+        kotlin          : "1.2.30",
+    ]
+
+    libs = [
+        supportAnnotations : "com.android.support:support-annotations:${versions.supportVersion}",
+        supportAppCompat   : "com.android.support:appcompat-v7:${versions.supportVersion}",
+        supportRecyclerView: "com.android.support:recyclerview-v7:${versions.supportVersion}",
+        supportDesign      : "com.android.support:design:${versions.supportVersion}",
+        supportCardView    : "com.android.support:cardview-v7:${versions.supportVersion}",
+        supportMultidex    : "com.android.support:multidex:${versions.supportMultidex}",
+        constraintLayout   : "com.android.support.constraint:constraint-layout:${versions.constraintLayout}",
+        testRunner         : "com.android.support.test:runner:${versions.testRunner}",
+        espressoCore       : "com.android.support.test.espresso:espresso-core:${versions.espressoCore}",
+        junit              : "junit:junit:${versions.junit}",
+        kotlin             : "org.jetbrains.kotlin:kotlin-stdlib-jre7:${versions.kotlin}",
+    ]
+}
