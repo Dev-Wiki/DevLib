@@ -8,15 +8,15 @@ ext {
     artifact = 'log'
     libraryName = 'log'
 
-    libraryVersion = '0.0.3'
+    libraryVersion = '0.0.4'
     libraryDescription = 'Android Develop Log Util'
 
-    siteUrl = 'https://github.com/Dev-Wiki/DevLog'
-    gitUrl = 'https://github.com/Dev-Wiki/DevLog.git'
+    siteUrl = 'https://github.com/Dev-Wiki/DevLib'
+    gitUrl = 'https://github.com/Dev-Wiki/DevLib.git'
 
     developerId = 'DevWiki'
     developerName = 'DevWiki'
-    developerEmail = 'bozhou2010@live.com'
+    developerEmail = 'devwiki@live.com'
 
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
@@ -24,18 +24,13 @@ ext {
 }
 
 android {
-    compileSdkVersion 27
-
-
+    compileSdkVersion compileSdkVer
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 27
+        minSdkVersion minSdkVer
+        targetSdkVersion targetSdkVer
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -50,10 +45,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:27.1.1'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
 
 apply from: '../installv1.gradle'

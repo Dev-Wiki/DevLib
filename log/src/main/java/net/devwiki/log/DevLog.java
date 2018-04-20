@@ -11,6 +11,8 @@ import android.content.Context;
 public class DevLog {
 
     private static final String DEFAULT_SAVE_PATH = "";
+    private static final String SUFFIX_JAVA = ".java";
+    private static final String SUFFIX_GROOVY = ".groovy";
     static final String HEAD_LINE = "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━";
     static final String START_LINE = "┃  ";
     static final String FOOT_LINE = "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━";
@@ -352,9 +354,17 @@ public class DevLog {
         String fileName = targetElement.getFileName();
         String methodName = targetElement.getMethodName();
         int lineNumber = targetElement.getLineNumber();
-        String location = "[ (" + fileName + ":" + lineNumber + ")#" + methodName + " ]";
+        String location = String.format("[ (%1s:%2s)#%3s ]", fileName, lineNumber, methodName);
         String[] logInfo = new String[3];
-        logInfo[0] = tag == null ? fileName : tag;
+        if (tag == null) {
+            if (fileName.endsWith(SUFFIX_JAVA)) {
+                tag = fileName.replace(SUFFIX_JAVA, "");
+            }
+            if (fileName.endsWith(SUFFIX_GROOVY)) {
+                tag = fileName.replace(SUFFIX_GROOVY, "");
+            }
+        }
+        logInfo[0] = tag;
         logInfo[1] = location;
         logInfo[2] = msg == null ? "" : msg;
         return logInfo;

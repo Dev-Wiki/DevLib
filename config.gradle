@@ -5,7 +5,7 @@ ext {
     //构建工具版本
     buildToolsVer = "26.0.3"
     //最低兼容版本
-    minSdkVer = 21
+    minSdkVer = 19
     //测试过的版本
     targetSdkVer = 27
     //支持库的版本
