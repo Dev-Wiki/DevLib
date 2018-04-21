@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'util_encode'
+
+    publishedGroupId = 'net.devwiki.util'
+    artifact = 'encode'
+    libraryName = 'encode'
+
+    libraryVersion = '0.0.1'
+    libraryDescription = 'Android Develop Encode Util'
+
+    siteUrl = 'https://github.com/Dev-Wiki/DevLib'
+    gitUrl = 'https://github.com/Dev-Wiki/DevLib.git'
+
+    developerId = 'DevWiki'
+    developerName = 'DevWiki'
+    developerEmail = 'devwiki@live.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+android {
+    compileSdkVersion compileSdkVer
+
+    defaultConfig {
+        minSdkVersion minSdkVer
+        targetSdkVersion targetSdkVer
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    compileOnly libs.gson
+    testImplementation 'junit:junit:4.12'
+}
+
+apply from: '../installv1.gradle'
+apply from: '../bintrayv1.gradle'
