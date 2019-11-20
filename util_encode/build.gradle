@@ -46,7 +46,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     compileOnly libs.gson
-    testImplementation 'junit:junit:4.12'
+    testImplementation libs.junit
 }
 
 apply from: '../installv1.gradle'
